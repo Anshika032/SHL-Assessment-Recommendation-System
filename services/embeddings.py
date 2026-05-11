@@ -16,7 +16,7 @@ class EmbeddingBuilder:
     def __init__(self):
 
         self.model = SentenceTransformer(
-            "all-MiniLM-L6-v2"
+            "sentence-transformers/paraphrase-MiniLM-L3-v2"
         )
 
     def load_catalog(self):
@@ -38,7 +38,7 @@ class EmbeddingBuilder:
             text = f"""
             Name: {item['name']}
             Description: {item['description']}
-            Content: {item['content']}
+            Content: {item.get('content', '')}
             """
 
             docs.append(text)
